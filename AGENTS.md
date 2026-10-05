@@ -6,7 +6,7 @@ Purpose
 
 Repository Snapshot
 - Language: Rust (edition 2024); single crate with library + async demo bin.
-- Key deps: surrealdb (=2.4.1; features kv-mem, kv-rocksdb), tokio, regex, reqwest 0.12 (rustls), serde, thiserror, similar.
+- Key deps: surrealdb (=2.6.0; features kv-mem, kv-rocksdb), tokio, regex, reqwest 0.12 (rustls), serde, thiserror, similar.
 - Demo REPL in src/main.rs; primary API in src/lib.rs. No workspace members. No CI; run checks locally.
 - Justfile present (wraps cargo run). No Copilot instructions. Cursor rules live in .cursor/rules/.
 

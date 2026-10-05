@@ -37,7 +37,13 @@ pub enum FsError {
     #[error("http error: {0}")]
     Http(String),
     #[error("database error: {0}")]
-    Surreal(#[from] surrealdb::Error),
+    Surreal(Box<surrealdb::Error>),
+}
+
+impl From<surrealdb::Error> for FsError {
+    fn from(error: surrealdb::Error) -> Self {
+        Self::Surreal(Box::new(error))
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
