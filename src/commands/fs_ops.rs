@@ -253,12 +253,12 @@ where
                 let host_path = &dest[5..];
                 let host_pathbuf = PathBuf::from(host_path);
 
-                if let Some(parent) = host_pathbuf.parent() {
-                    if !parent.as_os_str().is_empty() {
-                        fs::create_dir_all(parent).await.map_err(|e| {
-                            FsError::Http(format!("create host dir {}: {}", parent.display(), e))
-                        })?;
-                    }
+                if let Some(parent) = host_pathbuf.parent()
+                    && !parent.as_os_str().is_empty()
+                {
+                    fs::create_dir_all(parent).await.map_err(|e| {
+                        FsError::Http(format!("create host dir {}: {}", parent.display(), e))
+                    })?;
                 }
 
                 if fs::metadata(&host_pathbuf).await.is_ok() {

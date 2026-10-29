@@ -65,7 +65,7 @@ User-facing Python package `surrealfs-ai` that builds Pydantic AI agents on top 
   app = agent.to_web()
   uvicorn.run(app, host="127.0.0.1", port=7932)
   ```
-- Available tools mirror SurrealFs: `ls` (all/long/recursive/dir_only/human), `cat`, `tail`, `write_file`, `edit`, `touch`, `mkdir`, `cp`, `cd`, `pwd`. Tool docs live in `python/surrealfs_ai/src/tool_docs/`.
+- Available tools mirror SurrealFs: `ls` (all/long/recursive/dir_only/human), `cat`, `tail`, `write_file`, `edit`, `touch`, `mkdir`, `cp`, `cd`, `pwd`. Tool docs live in `python/surrealfs_ai/surrealfs_ai/tool_docs/`.
 - Telemetry uses `logfire` when a token is present; otherwise remains local. The packaged agent defaults to the Claude Haiku model set in `build_chat_agent`.
 
 ## Rust crate & CLI (core)

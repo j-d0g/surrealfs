@@ -42,7 +42,7 @@ where
         }
 
         if let Some((left, right)) = line.split_once('|') {
-            let mut parts = left.trim().split_whitespace();
+            let mut parts = left.split_whitespace();
             let cmd = parts.next().unwrap_or("");
             let args: Vec<&str> = parts.collect();
             let right = right.trim();

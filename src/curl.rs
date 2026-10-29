@@ -92,13 +92,12 @@ where
 }
 
 fn derive_out_name(url: &str) -> String {
-    if let Ok(parsed) = Url::parse(url) {
-        if let Some(seg) = parsed
+    if let Ok(parsed) = Url::parse(url)
+        && let Some(seg) = parsed
             .path_segments()
-            .and_then(|s| s.filter(|v| !v.is_empty()).last())
-        {
-            return seg.to_string();
-        }
+            .and_then(|mut s| s.rfind(|v| !v.is_empty()))
+    {
+        return seg.to_string();
     }
     "index.html".to_string()
 }
